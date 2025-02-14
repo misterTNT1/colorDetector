@@ -26,7 +26,7 @@ public class CameraComponent{
         int red = (pixel >> 16) & 0xFF;
         int green = (pixel >> 8) & 0xFF;
         int blue = pixel & 0xFF;
-        return "%02X%02X%02X%n".formatted(red, green, blue);
+        return "%02X%02X%02X".formatted(red, green, blue);
     }
 
     public int[][] toPixelArray(File file) throws IOException {
@@ -36,9 +36,7 @@ public class CameraComponent{
         int height = image.getHeight();
         int[][] pixels = new int[height][width];
         for (int row = 0; row < height; row++){
-            for (int col = 0; col < width; col++){
-                pixels[row][col] = image.getRGB(col, row);
-            }
+            image.getRGB(0,row,width,1, pixels[row],0, width);
         }
 
         return pixels;
