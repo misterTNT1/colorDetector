@@ -8,8 +8,6 @@ public class Main6 {
         File file = new File("C:\\Users\\eyal3\\OneDrive\\Desktop\\red_sample.png");
         int[][] pixels = cameraComponent.toPixelArray(file);
         colorCode = cameraComponent.intToString(pixels[0][0]);
-        cameraComponent.getColor(colorCode);
-        colorCode = cameraComponent.intToString(pixels[0][0]);
         System.out.println(cameraComponent.getColor(colorCode));
 
 
