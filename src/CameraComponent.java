@@ -7,7 +7,7 @@ public class CameraComponent{
     private final char diff = 'A';
 
     public boolean isYellow(String pixel){
-        return pixel.charAt(1) > diff;
+        return pixel.charAt(2) > diff;
     }
 
     public boolean isBlue(String pixel){
