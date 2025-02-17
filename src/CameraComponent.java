@@ -41,4 +41,22 @@ public class CameraComponent{
 
         return pixels;
     }
+
+    public String getAverageColor(int[][] pixels){
+        int averageRed = 0, averageGreen = 0, averageBlue = 0;
+        int pixelCount = pixels.length * pixels[0].length;
+        for (int[] row: pixels){
+            for (int pixel: row){
+                averageRed += (pixel >> 16) & 0xFF;
+                averageGreen += (pixel >> 8) & 0xFF;
+                averageBlue += pixel & 0xFF;
+            }
+        }
+
+        averageGreen = averageGreen / pixelCount;
+        averageRed = averageRed / pixelCount;
+        averageBlue = averageBlue / pixelCount;
+
+        return "%02X%02X%02X".formatted(averageRed, averageGreen, averageBlue);
+    }
 }
